@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
         title: 'Qiita Search',
         theme: ThemeData(
           primarySwatch: Colors.green,
-          fontFamily: 'Hiiragino Sans',
+          fontFamily: 'Hiragino Sans',
           appBarTheme: const AppBarTheme(
             backgroundColor: Color(0xFF55C500),
           ),
