@@ -1,13 +1,15 @@
 import 'package:test_flutter/models/user.dart';
 
 class Article {
-  Article(
-      {required this.title,
-      required this.user,
-      this.likesCount = 0,
-      this.tags = const [],
-      required this.createdAt,
-      required this.url});
+  // コンストラクタ
+  Article({
+    required this.title,
+    required this.user,
+    this.likesCount = 0,
+    this.tags = const [],
+    required this.createdAt,
+    required this.url,
+  });
 
   final String title;
   final User user;
@@ -18,11 +20,18 @@ class Article {
 
   factory Article.fromJson(dynamic json) {
     return Article(
-        title: json['title'] as String,
-        user: User.fromJson(json['user']),
-        likesCount: json['likes_count'] as int,
-        tags: List<String>.from(json['tags'].map((tag) => tag('name'))),
-        createdAt: DateTime.parse(json['created_at'] as String),
-        url: json);
+      title: json['title'] as String,
+      user: User.fromJson(
+        json['user'],
+      ),
+      url: json['url'] as String,
+      createdAt: DateTime.parse(
+        json['created_at'] as String,
+      ),
+      likesCount: json['likes_count'] as int,
+      tags: List<String>.from(
+        json['tags'].map((tag) => tag['name']),
+      ),
+    );
   }
 }
